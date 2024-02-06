@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Styling using CSS</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<style>
+
+
+.faqbox{
+background-color:pink;
+opacity:0.8;
+border:2px solid red;
+
+padding:20px;
+color:blue;
+}
+.faqbox ul li
+{list-style:none;}
+
+.answer{
+display:none;
+padding: 5px 0px;
+margin-bottom: 15px;
+}
+
+.faq-list-item{
+position:relative;
+margin:10px;
+border-bottom:1px solid #ccc;
+cursor:pointer;
+
+}
+.faq-list-item span{
+position: absolute;
+display:inline-block;
+top:15px;
+right:200px;
+font-size:20px;
+}
+body
+{border:10px solid black;
+margin:0;
+background:#ffffff;
+font-family:'Work Sans',sans-serif;
+font-weight:800;
+}
+.header{
+background-color:lightblue;
+padding:10px;
+text-align:center;
+margin-left:20px;
+width:91.5%;}
+
+.footer
+{text-align:center;
+background-color:lightblue;
+font-size:19px;}
+
+
+.container
+{width:80%;
+height:80px;
+margin-left:20px;}
+
+
+.wrapper
+{padding:50px;
+margin-left:20px;
+text-align:center;
+background-color:linen;
+width:87%;
+height:2000px;
+border:1px solid black;
+opacity:.9;}
+
+
+nav
+{float:right;}
+
+nav ul
+{margin:0;
+padding:0;
+list-style-type:none;}
+
+nav li
+{display:inline-block;
+margin-left:70px;
+padding-top:20px;
+position:relative;}
+
+nav a
+{color:red;
+text-decoration:none;
+text-transform:uppercase;
+font-size:14px;}
+nav a:hover{color:#000;}
+nav a::before{content:";display:block;height:5px;background-color:#444;position:absolute;top:0;width:0%;transition:all ease-in-out 250ms;}
+nav a:hover::before{width:100;}
+
+
+
+
+
+
+</style>
+</head>
+<body>
+
+<div class="header">
+<img src="https://www.burjkhalifa.ae/en/Images/BurjKhalifa-02982_new_tcm290-85702.jpg"height="50px" width="50px">
+<header>
+<div class="container">
+<nav>
+<ul>
+<li><a href="index.html">Home</a></li>
+<li><a href="#attractions">Major attractions</a></li>
+<li><a href="#hotels">Hotels</a></li>
+<li><a href="#contact us">Contact us</a></li>
+</ul>
+</nav>
+</div>
+</header>  </div>
+<div class="wrapper">
+<h1>FAQ</h1>
+
+<div class="faqbox">
+<ul>
+<li class="faq-list-item"><h2>Are there direct flights from Trivandrum to Dubai?</h2><span>+</span><div class="answer"><p>Yes,there are many direct flights from Trivandrum to Dubai.</p></div></li>
+<li class="faq-list-item"><h2>What is the best season to visit Dubai?</h2><span>+</span><div class="answer"><p>The best seasons to visit dubai starts from Noevember to March.</p></div></li>
+<li class="faq-list-item"><h2>Is Dubai is safe to visit?</h2><span>+</span><div class="answer"><p>Yes, Dubai is safe for tourists.</p></div></li>
+</div>
+</div>
+<div class="footer"><p>To know more about Dubai visit<a href="https://en.wikipedia.org/wiki/Dubai"><br>Click here</a></p></div>
+<script>
+$(function(){
+
+  $('.faq-list-item').click(function(){
+    var $answer = $(this).find('.answer');
+
+    if($answer.hasClass('open')) { 
+      $answer.removeClass('open');
+      // Use the slideUp() method to hide $answer
+      $answer.slideUp();
+      
+      // Find the <span> elements inside, then rewrite the content using the text() method
+      $(this).find('span').text('+');
+      
+    } else {
+      $answer.addClass('open'); 
+      // Use the slideDown() method to show $answer
+      $answer.slideDown();
+      $(this).find('span').text('-');
+      // Find the <span> elements inside, then rewrite the content using the text() method
+      
+      
+    }
+  });
+});
+
+
+</script></body>
+</html>
